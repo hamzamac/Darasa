@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactPDF from 'react-pdf';
+import ReactPDF from 'react-pdf/build/entry.webpack';
 import lecture from '../documents/Lecture_5.pdf';
 
 class Presentation extends Component
@@ -11,6 +11,7 @@ class Presentation extends Component
     onPageLoad({ pageIndex, pageNumber }) {
         this.setState({ pageIndex, pageNumber });
     }
+
     render()
     {
         return(
