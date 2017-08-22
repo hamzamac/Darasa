@@ -15,12 +15,10 @@ class Presentation extends Component
     render()
     {
         return(
-            <div>
+            <div className="w3-border">
                 <ReactPDF
                     file={lecture}
                     pageIndex={2}
-                    onDocumentLoad={this.onDocumentLoad}
-                    onPageLoad={this.onPageLoad}
                 />
             </div>
         );
