@@ -4,21 +4,14 @@ import lecture from '../documents/Lecture_5.pdf';
 
 class Presentation extends Component
 {
-    onDocumentLoad({ total }) {
-        this.setState({ total });
-    }
- 
-    onPageLoad({ pageIndex, pageNumber }) {
-        this.setState({ pageIndex, pageNumber });
-    }
-
     render()
     {
         return(
-            <div className="w3-border">
+            <div className="w3-display-middle">
                 <ReactPDF
                     file={lecture}
-                    pageIndex={2}
+                    pageIndex={0}
+                    scale={1.2}
                 />
             </div>
         );
