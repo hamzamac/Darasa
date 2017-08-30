@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/w3.css';
+//import '../styles/w3.css';
 import '../styles/w3-theme-grey.css';
 
 import Header from './Header';
