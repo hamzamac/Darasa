@@ -4,6 +4,10 @@ import lecture from '../documents/Lecture_5.pdf';
 
 class Presentation extends Component
 {
+    message()
+    {
+        alert("Clicked");
+    }
     render()
     {
         return(
@@ -13,6 +17,15 @@ class Presentation extends Component
                     pageIndex={0}
                     scale={1.2}
                 />
+
+                <div className="w3-center">
+                    <div class="w3-bar">
+                        <button className="w3-button w3-theme" onClick={this.message}>{"<<"}</button>
+                        <button className="w3-button w3-theme">{"<"}</button>
+                        <button className="w3-button w3-theme">{">"}</button>
+                        <button className="w3-button w3-theme">{">>"}</button>
+                    </div>
+                </div>
             </div>
         );
     }
