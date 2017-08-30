@@ -4,16 +4,22 @@ import lecture from '../documents/Lecture_5.pdf';
 
 class Presentation extends Component
 {
+    constructor(props) {
+        super(props);
+        this.state = {file: lecture};
+    }
+
     message()
     {
         alert("Clicked");
     }
+
     render()
     {
         return(
             <div className="w3-display-middle">
                 <ReactPDF
-                    file={lecture}
+                    file={this.state.file}
                     pageIndex={0}
                     scale={1.2}
                 />
