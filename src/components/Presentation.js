@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactPDF from 'react-pdf/build/entry.webpack';
 import lecture from '../documents/Lecture_5.pdf';
+import ViewOptions from './ViewOptions';
 
 class Presentation extends Component
 {
@@ -11,7 +12,7 @@ class Presentation extends Component
 
     message()
     {
-        alert("Clicked");
+        alert("Full Screen not yet Supported!");
     }
 
     changePage(by) {
@@ -32,10 +33,17 @@ class Presentation extends Component
 
                 <div className="w3-center">
                     <div class="w3-bar">
-                        <button className="w3-button w3-theme" onClick={this.message}>{"<<"}</button>
+                        <button className="w3-button w3-theme rel" >
+                            <i className="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                        <button className="w3-button w3-theme" >{"<<"}</button>
                         <button className="w3-button w3-theme" onClick={() => this.changePage(-1)}>{"<"}</button>
                         <button className="w3-button w3-theme" onClick={() => this.changePage(1)}>{">"}</button>
                         <button className="w3-button w3-theme">{">>"}</button>
+                        <button className="w3-button w3-theme" onClick={this.message}>
+                            <i className="fa fa-expand" aria-hidden="true"></i>
+                        </button>
+                        
                     </div>
                 </div>
             </div>
