@@ -3,5 +3,8 @@ var app= express();
 
 app.use(express.static('./build'));
 
-app.listen(3000)
-console.log('listening...')
+var server = app.listen(3000);
+var io = require('socket.io').listen(server);
+
+
+console.log('listening...');
