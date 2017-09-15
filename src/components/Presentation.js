@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactPDF from 'react-pdf/build/entry.webpack';
 import lecture from '../documents/Lecture_5.pdf';
-import ViewOptions from './ViewOptions';
+//import ViewOptions from './ViewOptions';
 
 class Presentation extends Component
 {

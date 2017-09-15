@@ -6,7 +6,22 @@ import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
 
+var io = require('socket.io-client');
+
 class App extends Component {
+
+  componentWillMount()
+  {
+    
+    this.socket = io('http://localhost:3000');
+    this.socket.on('connect',this.connectAction);
+  }
+
+  connectAction()
+  {
+
+  }
+
   render() {
     return (
       <div className="App">
