@@ -32,7 +32,7 @@ class Presentation extends Component
                 />
 
                 <div className="w3-center">
-                    <div class="w3-bar">
+                    <div className="w3-bar">
                         <button className="w3-button w3-theme rel" >
                             <i className="fa fa-eye" aria-hidden="true"></i>
                         </button>

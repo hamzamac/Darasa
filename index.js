@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').createServer(app);
 
-app.get('/',(req, res)=>{
+app.get('/build',(req, res)=>{
     res.sendFile(__dirname +'/build/index.html');
 });
 
