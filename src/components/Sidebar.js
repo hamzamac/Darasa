@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Chips from './Chips';
+import ClassDetails from './ClassDetails';
 
 class Sidebar extends Component
 {
@@ -11,7 +12,7 @@ class Sidebar extends Component
                     <Chips />
                 </div>
                 <div className="w3-section" >
-                    class Details
+                    <ClassDetails />
                 </div>
                 <div className="w3-section" >
                     shared materials

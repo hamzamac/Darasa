@@ -10,17 +10,25 @@ var io = require('socket.io-client');
 
 class App extends Component {
 
+  constructor(props)
+  {
+    super(props);
+    this.state={
+      peer:null
+    };
+  }
   componentWillMount()
   {
-    
     this.socket = io('http://localhost:3000');
     this.socket.on('connect',this.connectAction);
+    this.socket.on('peerchanged', this.updatePeer)
   }
 
   connectAction()
-  {
+  {}
 
-  }
+  updatePeer(peers)
+  {}
 
   render() {
     return (
