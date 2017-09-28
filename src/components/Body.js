@@ -7,8 +7,8 @@ class Body extends Component
     {
         return(
             <div className="w3-container w3-theme-light w3-row">
-               <Billboard />
-               <Sidebar /> 
+               <Billboard  />
+               <Sidebar data={this.props.data} /> 
             </div>
         );
     }

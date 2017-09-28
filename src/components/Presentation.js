@@ -8,11 +8,11 @@ class Presentation extends Component
     constructor(props) {
         super(props);
         this.state = {file: lecture,pageIndex:0};
+        this.message = this.message.bind(this);
     }
 
-    message()
-    {
-        alert("Full Screen not yet Supported!");
+    message = () => {
+       // alert("Full Screen not yet Supported!");
     }
 
     changePage(by) {
@@ -42,8 +42,7 @@ class Presentation extends Component
                         <button className="w3-button w3-theme">{">>"}</button>
                         <button className="w3-button w3-theme" onClick={this.message}>
                             <i className="fa fa-expand" aria-hidden="true"></i>
-                        </button>
-                        
+                        </button>  
                     </div>
                 </div>
             </div>
