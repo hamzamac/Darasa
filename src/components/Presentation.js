@@ -7,7 +7,7 @@ class Presentation extends Component
 {
     constructor(props) {
         super(props);
-        this.state = {file: lecture,pageIndex:0};
+        this.state = {file: lecture,pageIndex:1};
         this.message = this.message.bind(this);
     }
 
@@ -19,7 +19,8 @@ class Presentation extends Component
         this.setState(prevState => ({
           pageIndex: prevState.pageIndex + by,
         }));
-      }
+        this.props.socket.emit("pageChange",this.state.pageIndex);
+    }
 
     render()
     {

@@ -16,7 +16,11 @@ class Sidebar extends Component
                     />
                 </div>
                 <div className="w3-section" >
-                    <ClassDetails />
+                    <ClassDetails 
+                        title={this.props.data.topic}
+                        peers={this.props.data.peers}
+                        duration={this.props.data.timeStamp}
+                    />
                 </div>
                 <div className="w3-section" >
                     shared materials {this.props.data.documentPath}

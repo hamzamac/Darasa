@@ -10,45 +10,52 @@ import Footer from './Footer';
 var io = require('socket.io-client');
 
 class App extends Component {
-
+ 
   constructor(props)
   {
     super(props);
     this.state={
-      presenterName:"Unknown",
-      presenterLocation:"Unknown",
+      presenterName:"Name",
+      presenterLocation:"Location",
       presenterPhoto:InstPhoto,
-      title:"Unspecified",
+      topic:"Unspecified",
       timeStamp:"00:00",
       documentPath:"/me/path.pdf",
-      peers:0
+      peers:0,
+      currentPage:1
     };
 
+    //this.changePage = this.changePage.bind(this);
     this.updatePeer = this.updatePeer.bind(this);
     this.connectAction = this.connectAction.bind(this);
+    //this.test = this.test.bind(this);
   }
+
   componentWillMount()
   {
     this.socket = io('http://localhost:3000');
     this.socket.on('connect',this.connectAction);
     this.socket.on('peerchanged', this.updatePeer);
+    //this.socket.on('updatePage',this.test);
   }
 
   connectAction()
   {
-    this.setState({peers:'3'});
+    //this.socket.emit("pageChange",4);
   }
 
   updatePeer = (data)=> {
-    this.setState({peers:'3'});
+    this.setState({peers:data})
   }
 
+ 
+  
   render() {
     return (
       <div className="App">
         <Header />
-        <Body data={this.state}/>
-        <Footer peers={this.state.peers}/>
+        <Body data={this.state} socket={this.socket}/>
+        <Footer peers={this.state.peers}  />
       </div>
     );
   }

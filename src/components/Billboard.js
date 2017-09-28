@@ -10,8 +10,7 @@ class Billboard extends Component
                 className="w3-panel w3-threequarter w3-mobile w3-display-container"
                 style={{height:670+'px'}}
             >
-              <Presentation />
-            
+                <Presentation data={this.props.data} socket={this.props.socket}/>
             </div>
         );
     }
