@@ -34,7 +34,10 @@ class App extends Component {
     this.socket.on('peerchanged', this.updatePeer);
   }
 
-  connectAction = () => {this.setState({peers:'3'});}
+  connectAction()
+  {
+    this.setState({peers:'3'});
+  }
 
   updatePeer = (data)=> {
     this.setState({peers:'3'});

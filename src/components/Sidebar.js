@@ -10,9 +10,10 @@ class Sidebar extends Component
             <div className="w3-panel w3-quarter w3-mobile w3-theme-d4 w3-round">
                 <div className="w3-section" >
                     <Chips 
-                    name={this.props.data.presenterName} 
-                    photo={this.props.data.presenterLocation} 
-                    location={this.props.data.presenterPhoto} />
+                        name={this.props.data.presenterName} 
+                        photo={this.props.data.presenterPhoto} 
+                        location={this.props.data.presenterLocation} 
+                    />
                 </div>
                 <div className="w3-section" >
                     <ClassDetails />
