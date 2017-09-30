@@ -7,28 +7,28 @@ class Presentation extends Component
 {
     constructor(props) {
         super(props);
-        this.state = {file: lecture,pageIndex:1};
+        this.state = {file: lecture,pageIndex:this.props.data.pageIndex};
         this.message = this.message.bind(this);
     }
 
     message = () => {
        // alert("Full Screen not yet Supported!");
     }
-
+/*
     changePage(by) {
         this.setState(prevState => ({
           pageIndex: prevState.pageIndex + by,
         }));
         this.props.socket.emit("pageChange",this.state.pageIndex);
     }
-
+*/
     render()
     {
         return(
             <div className="w3-display-middle">
                 <ReactPDF
                     file={this.state.file}
-                    pageIndex={this.state.pageIndex}
+                    pageIndex={this.props.data.pageIndex}
                     scale={1.2}
                 />
 
@@ -38,8 +38,8 @@ class Presentation extends Component
                             <i className="fa fa-eye" aria-hidden="true"></i>
                         </button>
                         <button className="w3-button w3-theme" >{"<<"}</button>
-                        <button className="w3-button w3-theme" onClick={() => this.changePage(-1)}>{"<"}</button>
-                        <button className="w3-button w3-theme" onClick={() => this.changePage(1)}>{">"}</button>
+                        <button className="w3-button w3-theme" onClick={() => this.props.changePage(-1)}>{"<"}</button>
+                        <button className="w3-button w3-theme" onClick={() => this.props.changePage(1)}>{">"}</button>
                         <button className="w3-button w3-theme">{">>"}</button>
                         <button className="w3-button w3-theme" onClick={this.message}>
                             <i className="fa fa-expand" aria-hidden="true"></i>

@@ -3,10 +3,10 @@ var app= express();
 
 //states variables
 var connections = [];
-var title = "";
+var title = "Title Passed";
 var timeStamp = new Date();
 var presentation = "";
-var currentPage = 1;
+var currentPage = 0;
 
 
 //
@@ -27,18 +27,15 @@ io.sockets.on('connection',function(socket){
     //user conection
     connections.push(socket);
     io.emit('peerchanged',connections.length);
+    socket.emit('welcome',{title:title,presentation:presentation,pageIndex:currentPage});
     console.log(connections.length);
 
     //page change
     socket.on("pageChange", (page)=>{
         currentPage = page;
         console.log("page:" + page);
-        io.emit("updatePage",currentPage)
+        socket.broadcast.emit("currentPage",page)
     });
-
-    //previous page
-
-    //page change
 
 });
 
