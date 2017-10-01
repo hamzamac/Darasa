@@ -30,10 +30,11 @@ class App extends Component {
     this.updatePeer = this.updatePeer.bind(this);
     this.connectAction = this.connectAction.bind(this);
     this.setInitilStates = this.setInitilStates.bind(this);
+    this.setNewPageFromPresenter = this.setNewPageFromPresenter.bind(this);
     //To server bindings
     this.informOnCurrentPage = this.informOnCurrentPage.bind(this);
     //Test bindings
-    this.test = this.test.bind(this);
+    //this.test = this.test.bind(this);
   }
 
   componentWillMount()
@@ -42,7 +43,7 @@ class App extends Component {
     this.socket.on('connect',this.connectAction);
     this.socket.on('welcome',this.setInitilStates)
     this.socket.on('peerchanged', this.updatePeer);
-    this.socket.on('currentPage',this.test);
+    this.socket.on('currentPage',this.setNewPageFromPresenter);
   }
 
 
@@ -66,19 +67,15 @@ class App extends Component {
 
   //called when next or previous page is cliked
   changePage(by) {
-    this.setState(prevState => ({ 
-      pageIndex: prevState.pageIndex + by}),
-      this.informOnCurrentPage
-    );
+    this.setState(prevState => ({ pageIndex: prevState.pageIndex + by}),this.informOnCurrentPage);
   }
- 
-
+  setNewPageFromPresenter(data){this.setState({pageIndex:data})}
   // TO THE SERVER FUNCTIONS
 
   //get and set the current page of presentation after joining
   informOnCurrentPage(){this.socket.emit("pageChange",this.state.pageIndex);}
   //function for testing
-  test(data){}
+  test(data){this.setState({pageIndex:data})}
 
   // CLIENT SIDE FUNCTIONS
 
