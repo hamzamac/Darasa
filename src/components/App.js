@@ -24,6 +24,7 @@ class App extends Component {
       peers:0,
       pageIndex:0
     };
+
     // from server
     this.changePage = this.changePage.bind(this);
     this.updatePeer = this.updatePeer.bind(this);
@@ -42,36 +43,45 @@ class App extends Component {
     this.socket.on('welcome',this.setInitilStates)
     this.socket.on('peerchanged', this.updatePeer);
     this.socket.on('currentPage',this.test);
-
   }
 
 
-  // FROM SERVER
+  // FROM SERVER FUNCTIONS
+
   connectAction()
   {
     //this.socket.emit("pageChange",4);
   }
 
+  //get and set the initial data when this socket join presentation
   setInitilStates(serverData)
   {
     this.setState({topic: serverData.title, pageIndex:serverData.pageIndex});
   }
 
+  //update no. of peers everytime a new socket join the presentation
   updatePeer = (data)=> {
     this.setState({peers:data})
   }
 
+  //called when next or previous page is cliked
   changePage(by) {
-    this.setState(prevState => ({ pageIndex: prevState.pageIndex + by}),this.informOnCurrentPage);
+    this.setState(prevState => ({ 
+      pageIndex: prevState.pageIndex + by}),
+      this.informOnCurrentPage
+    );
   }
  
 
-  // TO THE SERVER
+  // TO THE SERVER FUNCTIONS
+
+  //get and set the current page of presentation after joining
   informOnCurrentPage(){this.socket.emit("pageChange",this.state.pageIndex);}
+  //function for testing
+  test(data){}
 
-  test(data){this.setState({pageIndex:data})}
+  // CLIENT SIDE FUNCTIONS
 
-  // CLIENT SIDE
   render() {
     return (
       <div className="App">
@@ -80,7 +90,7 @@ class App extends Component {
           data={this.state} 
           changePage={this.changePage}
         />
-        <Footer data={this.state}  />
+        <Footer />
       </div>
     );
   }

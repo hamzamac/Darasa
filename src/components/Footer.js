@@ -6,7 +6,7 @@ class Footer extends Component
     {
         return (
             <div className="w3-container w3-theme-dark w3-center"><a href="www.shewt.co.tz">
-                Shewt 2017</a> {this.props.data.pageIndex}
+                Shewt 2017</a>
             </div>
         );
     }

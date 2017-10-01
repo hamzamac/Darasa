@@ -17,24 +17,24 @@ var io = require('socket.io').listen(server);
 
 
 io.sockets.on('connection',function(socket){
-    //user disconnected
+    //on socket disconnected
     socket.once('disconnect',()=>{
         connections.splice(connections.indexOf(socket),1);
         console.log(connections.length);
         io.emit('peerchanged',connections.length);
     });
 
-    //user conection
-    connections.push(socket);
-    io.emit('peerchanged',connections.length);
-    socket.emit('welcome',{title:title,presentation:presentation,pageIndex:currentPage});
+    //on socket conection
+    connections.push(socket); //and to socket array
+    io.emit('peerchanged',connections.length); //pubish to all that new user counter
+    socket.emit('welcome',{title:title,presentation:presentation,pageIndex:currentPage}); //provide the connection with states information
     console.log(connections.length);
 
-    //page change
+    //on page change
     socket.on("pageChange", (page)=>{
         currentPage = page;
         console.log("page:" + page);
-        socket.broadcast.emit("currentPage",page)
+        socket.broadcast.emit("currentPage",page); //tell others on this socket page action
     });
 
 });
