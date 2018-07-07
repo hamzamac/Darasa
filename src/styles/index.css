@@ -2,8 +2,30 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
 }
-
+.fullHeight{height: 100%;}
+.nfullHeight{height: 97%;}
+.flex-container{display: flex;}
+.leftPadded{padding-left: 16px;}
 .rel{
   position: relative;
+}
+
+
+
+
+.App{
+  display: flex; 
+  flex-direction: column;
+}
+.Presentation>canvas[style] {
+    max-width: 98% !important;
+    max-height: 98% !important;
+}
+
+.Billboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

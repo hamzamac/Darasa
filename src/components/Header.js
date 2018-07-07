@@ -5,7 +5,7 @@ class Header extends Component
     render()
     {
         return (
-            <div className="w3-container w3-theme w3-card2">
+            <div className="Header w3-container w3-theme w3-card2 w3-col">
                 
                 <h4>
                     Darasa

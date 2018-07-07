@@ -7,7 +7,7 @@ class Sidebar extends Component
     render()
     {
         return(
-            <div className="w3-panel w3-quarter w3-mobile w3-theme-d4 w3-round">
+            <div className="Sidebar w3-panel w3-quarter w3-mobile w3-theme-d4 w3-round nfullHeight">
                 <div className="w3-section" >
                     <Chips 
                         name={this.props.data.presenterName} 
@@ -22,12 +22,7 @@ class Sidebar extends Component
                         duration={this.props.data.timeStamp}
                     />
                 </div>
-                <div className="w3-section" >
-                    shared materials {this.props.data.documentPath}
-                </div>
-                <div className="w3-section" >
-                    chart box
-                </div>                                                  
+                                                 
             </div>
         );
     }

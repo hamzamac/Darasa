@@ -46,7 +46,6 @@ class App extends Component {
     this.socket.on('currentPage',this.setNewPageFromPresenter);
   }
 
-
   // FROM SERVER FUNCTIONS
 
   connectAction()
@@ -70,24 +69,22 @@ class App extends Component {
     this.setState(prevState => ({ pageIndex: prevState.pageIndex + by}),this.informOnCurrentPage);
   }
   setNewPageFromPresenter(data){this.setState({pageIndex:data})}
+ 
   // TO THE SERVER FUNCTIONS
-
   //get and set the current page of presentation after joining
   informOnCurrentPage(){this.socket.emit("pageChange",this.state.pageIndex);}
   //function for testing
   test(data){this.setState({pageIndex:data})}
 
   // CLIENT SIDE FUNCTIONS
-
   render() {
     return (
-      <div className="App">
+      <div className="App fullHeight  w3-row">
         <Header />
         <Body 
           data={this.state} 
           changePage={this.changePage}
         />
-        <Footer />
       </div>
     );
   }

@@ -25,27 +25,13 @@ class Presentation extends Component
     render()
     {
         return(
-            <div className="w3-display-middle">
+            <div className="Presentation">
                 <ReactPDF
                     file={this.state.file}
                     pageIndex={this.props.data.pageIndex}
-                    scale={1.2}
+                    scale={0.98}
                 />
 
-                <div className="w3-center">
-                    <div className="w3-bar">
-                        <button className="w3-button w3-theme rel" >
-                            <i className="fa fa-eye" aria-hidden="true"></i>
-                        </button>
-                        <button className="w3-button w3-theme" >{"<<"}</button>
-                        <button className="w3-button w3-theme" onClick={() => this.props.changePage(-1)}>{"<"}</button>
-                        <button className="w3-button w3-theme" onClick={() => this.props.changePage(1)}>{">"}</button>
-                        <button className="w3-button w3-theme">{">>"}</button>
-                        <button className="w3-button w3-theme" onClick={this.message}>
-                            <i className="fa fa-expand" aria-hidden="true"></i>
-                        </button>  
-                    </div>
-                </div>
             </div>
         );
     }
